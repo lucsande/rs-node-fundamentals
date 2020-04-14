@@ -12,7 +12,7 @@ class Transaction {
   constructor({ title, value, type }: Omit<Transaction, 'id'>) {
     this.id = uuid();
     this.title = title;
-    this.value = value;
+    this.value = Math.abs(value); // value should always be a natural number, type('income'|'outcome') is what defines if it is positive or negative operation
     this.type = type;
   }
 }
